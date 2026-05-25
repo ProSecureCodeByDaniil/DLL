@@ -1,0 +1,14 @@
+cd DllInjectorAsDll
+g++ -shared -o DllInjectorAsDll.dll Source.cpp -luser32 -lkernel32 -DUNICODE -D_UNICODE
+
+cd DLLInjectorAsProcess
+g++ -o DLLInjectorAsProcess.exe Source.cpp -luser32 -lkernel32 -DUNICODE -D_UNICODE
+
+cd DLLLoader
+g++ -o DLLLoader.exe Source.cpp -luser32 -lkernel32 -DUNICODE -D_UNICODE
+
+cd TargetProcess
+g++ -o TargetProcess.exe Source.cpp
+
+cd VirusDLL
+g++ -shared -o VirusDLL.dll Source.cpp -lpsapi -luser32 -lkernel32
