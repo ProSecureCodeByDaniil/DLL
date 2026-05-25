@@ -12,3 +12,7 @@ g++ -o TargetProcess.exe Source.cpp
 
 cd VirusDLL
 g++ -shared -o VirusDLL.dll Source.cpp -lpsapi -luser32 -lkernel32
+
+pacman -S mingw-w64-x86_64-gcc mingw-w64-x86_64-headers-git
+
+cl /EHsc /Fe:TargetProcess.exe Source.cpp /link psapi.lib
